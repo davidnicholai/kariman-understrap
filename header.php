@@ -30,9 +30,9 @@
 
       <a class="skip-link screen-reader-text sr-only" href="#content"><?php _e( 'Skip to content', 'understrap' ); ?></a>
 
-      <nav class="navbar navbar-dark bg-inverse site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+      <nav class="navbar navbar-dark bg-inverse site-navigation _navbar" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 
-        <div class="container">
+        <div class="container-fluid">
 
           <div class="navbar-header">
 
@@ -53,7 +53,7 @@
             array(
               'theme_location' => 'primary',
               'container_class' => 'collapse navbar-toggleable-xs exCollapsingNavbar',
-              'menu_class' => 'nav navbar-nav',
+              'menu_class' => 'nav navbar-nav float-md-right',
               'fallback_cb' => '',
               'menu_id' => 'main-menu',
               'walker' => new wp_bootstrap_navwalker()

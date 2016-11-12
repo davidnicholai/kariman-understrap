@@ -24,7 +24,7 @@
 
 <div class="wrapper" id="wrapper-index">
 
-  <div class="container" id="content">
+  <div class="container-fluid" id="content">
 
     <div class="row">
 
@@ -68,4 +68,4 @@
 
 </div><!-- Wrapper end -->
 
-<?php get_footer(); ?>
+<?php /* get_footer(); */ ?>
