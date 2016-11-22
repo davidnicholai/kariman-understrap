@@ -68,7 +68,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
       */
       if($args->has_children && $depth === 0) { $class_names .= ' dropdown'; } elseif($args->has_children && $depth > 0) { $class_names .= ' dropdown-submenu'; }
       if ( in_array( 'current-menu-item', $classes ) )
-        $class_names .= ' active';
+        $class_names .= ' active-menu-item';
       // remove Font Awesome icon from classes array and save the icon
       // we will add the icon back in via a <span> below so it aligns with
       // the menu item

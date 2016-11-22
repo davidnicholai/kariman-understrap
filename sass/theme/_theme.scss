@@ -1,1 +1,557 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+$url: web-fonts-url("Open Sans");
+@import url($url);
+
+$background-color: #f5f5f5;
+$text-color: #525252;
+$accent-color: #f86c5e;
+
+@mixin when-xs() { @media (max-width: 767px) { @content; } }
+@mixin when-sm() { @media (min-width: 768px) { @content; } }
+@mixin when-md() { @media (min-width: 992px) { @content; } }
+@mixin when-lg() { @media (min-width: 1200px) { @content; } }
+/*@mixin when-xs() { @media (max-width: 767px) { @content; } }
+@mixin when-sm() { @media (min-width: 768px) { @content; } }
+@mixin when-md() { @media (min-width: 992px) { @content; } }
+@mixin when-lg() { @media (min-width: 1200px) { @content; } }*/
+
+@mixin default-font {
+  font-family: 'Open Sans';
+  font-color: $text-color;
+}
+
+@mixin f-extra-bold {
+  @include default-font;
+  font-weight: 800;
+}
+
+@mixin f-bold {
+  @include default-font;
+  font-weight: 700;
+}
+
+@mixin f-semi-bold {
+  @include default-font;
+  font-weight: 600;
+}
+
+@mixin f-regular {
+  @include default-font;
+  font-weight: 400;
+}
+
+@mixin f-light {
+  @include default-font;
+  font-weight: 300;
+}
+
+body {
+  background-color: $background-color !important;
+}
+/*
+@include when-xs {
+  body {
+    background-color: red !important;
+  }
+}
+
+@include when-sm {
+  body {
+    background-color: orange !important;
+  }
+}
+
+@include when-md {
+  body {
+    background-color: yellow !important;
+  }
+}
+
+@include when-lg {
+  body {
+    background-color: green !important;
+  }
+}
+*/
+/* --------------------------------------
+# Header / Navigation
+---------------------------------------*/
+@media (min-width: 1137px) {
+  ._navbar {
+    background-color: $background-color !important;
+    // height: 100px;
+  }
+
+  .navbar-brand {
+    color: $text-color !important;
+    @include f-extra-bold;
+    /*font-size: 32px;*/
+    font-size: 1.9em;
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    /*margin-left: 20px;*/
+    color: $text-color !important;
+    @include f-regular;
+    /*font-size: 27px;*/
+    font-size: 1.7em;
+    text-transform: uppercase;
+    @include fadeInDown(
+      $duration: 1s,
+      $count: 1,
+      $delay: .2s,
+      $function: ease, 
+      $fill: both
+    );
+  }
+
+  .current-menu-item {
+    a {
+      border-bottom: 4px solid $accent-color;
+    }
+  }
+
+  .nav-link:hover {
+    border-bottom: 4px solid $accent-color;    
+  }
+}
+
+@media (max-width: 1136px) {
+  ._navbar {
+    background-color: $background-color !important;
+  }
+
+  .navbar-brand {
+    color: $text-color !important;
+  }
+
+  .nav-link {
+    color: $text-color !important;
+    text-transform: uppercase;
+  }
+
+  .navbar-toggler {
+    /*border-color: rgba(0, 0, 0, 1) !important;*/
+    background-color: $accent-color !important;
+  }
+}
+/* --------------------------------------
+# Stories
+---------------------------------------*/
+
+._article-date-container {
+  background-color: $accent-color;
+  color: white !important;
+  text-transform: uppercase;
+  display: inline;
+  padding: 5%;
+}
+
+._article-date-link {
+  a {
+    color: white;
+    @include f-bold;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+._article-date-td-monthyear {
+  text-align: center;
+  /*font-size: 16px;*/
+  font-size: 1em;
+  padding-top: 10%;
+}
+
+._article-date-td-day {
+  text-align: center;
+  /*font-size: 56px;*/
+  font-size: 3.5em;
+}
+
+._nopadding {
+  padding: 0 !important;
+  /*margin: 0 !important;*/
+}
+
+._article-container {
+  background-color: white;
+  padding: 1%;
+  margin-bottom: 2.5%;
+}
+
+._story-title {
+  /*margin-bottom: 20px;*/
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+._story-title > a {
+  text-decoration: none;
+  color: $text-color;
+  text-transform: uppercase;
+  @include f-bold;
+  /*font-size: 30px;*/
+  font-size: 1em;
+}
+
+._article-content {
+  text-align: justify;
+  /*font-size: 20px;*/
+  font-size: 1.25em;
+  @include f-light;
+}
+
+.understrap-read-more-link {
+  float: right;
+  border: none;
+  border-radius: 0;
+  background-color: $accent-color;
+  @include f-light;
+  color: white;
+  width: 20em;
+  text-transform: uppercase;
+}
+
+@include when-xs {
+  ._story-title {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  ._article-container {
+    margin: 2%;
+    padding: 5%;
+  }
+
+  ._article-container > header > div > span, ._article-container > header > div > span > a, ._article-container > header > div > span > span > a  {
+    color: $text-color;
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  ._article-content {
+    font-size: 1em;
+  }
+
+  .understrap-read-more-link {
+    border: none;
+    border-radius: 0;
+    background-color: $accent-color;
+    @include f-light;
+    color: white;
+    width: 100%;
+    text-transform: uppercase;
+
+    margin-bottom: 5%;
+  }
+}
+
+/* --------------------------------------
+# FAQ
+---------------------------------------*/
+
+._faq-container > h1 {
+  width: 90%;
+  margin: auto;
+  margin-top: 2%;
+  @include f-bold;
+  font-size: 22px;
+  color: $text-color;
+  text-transform: uppercase;
+}
+
+._faq-container > h2 {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 20px;
+  @include f-light;
+  color: $text-color;
+}
+
+._faq-container > ol > li {
+  width: 80%;
+  margin-left: 5%;
+  @include f-semi-bold;
+  color: $text-color;
+}
+
+._faq-container > ol > li > ol > li {
+  @include f-light;
+  color: $text-color;
+  list-style-type: none;
+}
+
+._faq-img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@include when-xs {
+
+  ._faq-container > h2 {
+    font-size: 1em;
+    text-align: justify;
+  }
+
+  ._faq-img {
+    width: 50vh;
+  }
+
+  ._faq-container > ol > li {
+    text-align: justify;
+    font-size: 0.9em;
+  }
+
+  ._faq-container > ol > li > ol > li{
+    text-align: justify;
+    font-size: 0.9em;
+  }
+}
+
+/* --------------------------------------
+# About
+---------------------------------------*/
+
+._about-container {
+  width: 100%;
+}
+
+._about-sm {
+  margin: 5%;
+  h1 {
+    @include f-bold;
+    font-size: 2em;
+  }
+  p {
+    @include f-light;
+    font-size: 1.2em !important;
+    text-align: justify;
+  }
+}
+
+._about-h1 {
+  @include f-extra-bold;
+  /*font-size: 54px;*/
+  font-size: 3.4em;
+  /*font-size: 2.8vw;*/
+}
+
+._about-img {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+._about-text {
+  @include f-light;
+  /*font-size: 24px;*/
+  font-size: 1.5em; 
+}
+
+._text-align-left {
+  text-align: left;
+}
+
+._text-align-right {
+  text-align: right;
+}
+
+
+/* --------------------------------------
+# Single Motherhood
+---------------------------------------*/
+
+@include when-xs {
+  ._motherhood-container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
+  ._motherhood-entry-container {
+    width: 98%;
+    margin-top: 2%;
+    margin-bottom: 5%; 
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-bottom: 5%;
+    border-bottom: 1px solid $text-color;
+  }
+
+  ._motherhood-img {
+    width: 100%;
+    border-bottom: 8px solid $accent-color;
+  }
+
+  ._motherhood-h1 {
+    @include f-bold;
+    font-size: 2em;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+  }
+
+  ._motherhood-p {
+    text-align: justify;
+    @include f-light;
+    font-size: 1.2em;
+  }
+
+  ._motherhood-watch-link {
+    margin-top: 20px;
+    width: 100%;
+    background-color: $accent-color;
+    text-align: center;
+    padding: 5px;
+  }
+
+  ._motherhood-watch-link > a {
+    @include f-light;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: white;
+  }
+}
+
+@include when-sm {
+  ._motherhood-container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
+  ._motherhood-entry-container {
+    width: 80%;
+    margin-top: 2%;
+    margin-bottom: 5%; 
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  ._motherhood-img {
+    width: 100%;
+    border-bottom: 8px solid $accent-color;
+  }
+
+  ._motherhood-h1 {
+    @include f-bold;
+    font-size: 2em;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+  }
+
+  ._motherhood-p {
+    text-align: justify;
+    @include f-light;
+    font-size: 1.2em;
+  }
+
+  ._motherhood-watch-link {
+    margin-top: 20px;
+    width: 100%;
+    background-color: $accent-color;
+    text-align: center;
+    padding: 5px;
+  }
+
+  ._motherhood-watch-link > a {
+    @include f-light;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: white;
+  }
+}
+@include when-lg {
+  ._motherhood-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2%;
+  }
+
+  ._motherhood-entry-container {
+    width: 31%;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: inline-block;
+  }
+
+  ._motherhood-img {
+    width: 100%;
+    border-bottom: 8px solid $accent-color;
+  }
+
+  ._motherhood-h1 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    @include f-bold;
+    font-size: 28px;
+    color: $text-color;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  ._motherhood-p {
+    width: 95%;
+    margin: auto;
+    @include f-light;
+    font-size: 24px;
+    color: $text-color;
+    text-align: justify;
+    line-height: 2em;
+  }
+
+  ._motherhood-watch-link {
+    margin-top: 20px;
+    width: 100%;
+    background-color: $accent-color;
+    text-align: center;
+    padding: 5px;
+  }
+
+  ._motherhood-watch-link > a {
+    @include f-light;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: white;
+  }
+}
+
+/* --------------------------------------
+# Home
+---------------------------------------*/
+
+._home-container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+._carousel-button {
+  border: none !important;
+  background-color: $text-color  !important;
+}
+
+.active {
+  background-color: $accent-color !important;
+}
+
+._custom-carousel {
+
+  @include fadeIn(
+    $duration: 1s,
+    $count: 1,
+    $delay: .5s,
+    $function: ease, 
+    $fill: both
+  );  
+}
+
+/*
+  light 300
+  regular 400
+  semi-bold 600
+  bold 700
+  extra-bold 800
+*/

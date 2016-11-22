@@ -4,39 +4,95 @@
  */
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article class="row" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-  <header class="entry-header">
+  <div class="hidden-sm-up">
+    <hr width=95%>
+    <div class="_article-container">
+      <header class="entry-header">
 
-    <?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+        <?php the_title( sprintf( '<h2 class="entry-title _story-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+        <?php if ( 'post' == get_post_type() ) : ?>
 
-    <div class="entry-meta">
+          <div class="entry-meta"> 
+            <?php understrap_posted_on(); ?>
+          </div> 
 
-      <?php understrap_posted_on(); ?>
+        <?php endif; ?>
 
-    </div><!-- .entry-meta -->
+      </header><!-- .entry-header -->
 
-  </header><!-- .entry-header -->
+      <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
-  <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+      <div class="entry-content _article-content">
 
-  <div class="entry-content">
+        <?php
+          the_excerpt();
+        ?>
 
-    <?php the_content(); ?>
+        <?php
+          wp_link_pages( array(
+            'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
+            'after'  => '</div>',
+          ) );
+        ?>
+    </div>
+  </div>
+  </div>
 
-    <?php
-      wp_link_pages( array(
-        'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
-        'after'  => '</div>',
-      ) );
-    ?>
+  <div class="hidden-sm-down">
+    <div class="col-md-1 offset-md-1 _nopadding">
+      <div class="_article-date-container pull-right">
+        <center>
+          <table>
+              <td class="_article-date-td-monthyear"><?php kariman_posted_on_month_year(); ?></td>
+            </tr>
+            <tr>
+              <td class="_article-date-td-day"><?php kariman_posted_on_day(); ?></td>
+            </tr>
+          </table>
+        </center>
+      </div>
+    </div>
 
-  </div><!-- .entry-content -->
+    <div class="col-md-8 _article-container">
+      <header class="entry-header">
 
-  <footer class="entry-footer">
+        <?php the_title( sprintf( '<h2 class="entry-title _story-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-    <?php understrap_entry_footer(); ?>
+        <?php if ( 'post' == get_post_type() ) : ?>
 
-  </footer><!-- .entry-footer -->
+          <!-- <div class="entry-meta"> -->
+            <!-- <?php understrap_posted_on(); ?> -->
+          <!-- </div>.entry-meta -->
+
+        <?php endif; ?>
+
+      </header><!-- .entry-header -->
+
+      <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+
+      <div class="entry-content _article-content">
+
+        <?php
+          the_content();
+        ?>
+
+        <?php
+          wp_link_pages( array(
+            'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
+            'after'  => '</div>',
+          ) );
+        ?>
+
+      </div><!-- .entry-content -->
+
+      <!-- <footer class="entry-footer"> -->
+
+        <!-- <?php understrap_entry_footer(); ?> -->
+
+      <!-- </footer>.entry-footer -->
+    </div>
+  </div>
 
 </article><!-- #post-## -->
