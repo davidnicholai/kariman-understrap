@@ -101,7 +101,7 @@ body {
       $duration: 1s,
       $count: 1,
       $delay: .2s,
-      $function: ease, 
+      $function: ease,
       $fill: both
     );
   }
@@ -113,7 +113,7 @@ body {
   }
 
   .nav-link:hover {
-    border-bottom: 4px solid $accent-color;    
+    border-bottom: 4px solid $accent-color;
   }
 }
 
@@ -297,7 +297,7 @@ body {
   }
 
   ._faq-img {
-    width: 50vh;
+    width: 100%;
   }
 
   ._faq-container > ol > li {
@@ -347,7 +347,7 @@ body {
 ._about-text {
   @include f-light;
   /*font-size: 24px;*/
-  font-size: 1.5em; 
+  font-size: 1.5em;
 }
 
 ._text-align-left {
@@ -373,7 +373,7 @@ body {
   ._motherhood-entry-container {
     width: 98%;
     margin-top: 2%;
-    margin-bottom: 5%; 
+    margin-bottom: 5%;
     margin-left: 1%;
     margin-right: 1%;
     padding-bottom: 5%;
@@ -425,7 +425,7 @@ body {
   ._motherhood-entry-container {
     width: 80%;
     margin-top: 2%;
-    margin-bottom: 5%; 
+    margin-bottom: 5%;
     margin-left: 10%;
     margin-right: 10%;
   }
@@ -538,14 +538,13 @@ body {
 }
 
 ._custom-carousel {
-
   @include fadeIn(
     $duration: 1s,
     $count: 1,
     $delay: .5s,
-    $function: ease, 
+    $function: ease,
     $fill: both
-  );  
+  );
 }
 
 /*

@@ -15977,7 +15977,7 @@ body {
     font-size: 1em;
     text-align: justify; }
   ._faq-img {
-    width: 50vh; }
+    width: 100%; }
   ._faq-container > ol > li {
     text-align: justify;
     font-size: 0.9em; }
