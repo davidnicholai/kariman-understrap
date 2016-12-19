@@ -6,6 +6,8 @@
  */
 ?>
 <article class="row" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+
+  <!-- FOR XS AND SM SCREENS -->
   <div class="hidden-sm-up">
     <hr width=95%>
 
@@ -21,7 +23,7 @@
 
         <?php endif; ?>
 
-      </header>
+      </header><!-- .entry-header -->
 
       <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
@@ -41,6 +43,7 @@
     </div>
   </div>
 
+  <!-- FOR MD AND LG SCREENS -->
   <div class="hidden-sm-down">
     <div class="col-md-1 offset-md-1 _nopadding">
       <div class="_article-date-container pull-right">
@@ -62,6 +65,14 @@
 
         <?php the_title( sprintf( '<h2 class="entry-title _story-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
+        <?php if ( 'post' == get_post_type() ) : ?>
+
+          <!-- <div class="entry-meta"> -->
+            <!-- <?php understrap_posted_on(); ?> -->
+          <!-- </div> -->
+
+        <?php endif; ?>
+
       </header>
 
       <?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
@@ -72,8 +83,21 @@
           the_excerpt();
         ?>
 
-      </div>
+        <?php
+          wp_link_pages( array(
+            'before' => '<div class="page-links">' . __( 'Pages:', 'understrap' ),
+            'after'  => '</div>',
+          ) );
+        ?>
+
+      </div><!-- .entry-content -->
+
+      <footer class="entry-footer">
+
+        <!-- <?php understrap_entry_footer(); ?> -->
+
+      </footer>
     </div>
   </div>
 
-</article>
+</article><!-- #post-## -->

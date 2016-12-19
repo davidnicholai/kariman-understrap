@@ -4,7 +4,7 @@
  */
 ?>
 
-<article class="row" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article class="row _article-single-container" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
   <div class="hidden-sm-up">
     <hr width=95%>
@@ -14,9 +14,9 @@
         <?php the_title( sprintf( '<h2 class="entry-title _story-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
         <?php if ( 'post' == get_post_type() ) : ?>
 
-          <div class="entry-meta"> 
+          <div class="entry-meta">
             <?php understrap_posted_on(); ?>
-          </div> 
+          </div>
 
         <?php endif; ?>
 
@@ -87,11 +87,11 @@
 
       </div><!-- .entry-content -->
 
-      <!-- <footer class="entry-footer"> -->
+      <footer class="entry-footer">
 
-        <!-- <?php understrap_entry_footer(); ?> -->
+        <?php understrap_entry_footer(); ?>
 
-      <!-- </footer>.entry-footer -->
+      </footer><!-- .entry-footer -->
     </div>
   </div>
 

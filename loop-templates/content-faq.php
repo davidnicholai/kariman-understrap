@@ -66,4 +66,6 @@
   </ol>
   <img class="alignnone size-full wp-image-33 _faq-img" src="http://localhost/wp-content/uploads/2016/11/faq-img-3-1.jpg" alt="faq-img-3" width="1920" height="315" />
   <!-- <?php the_content(); ?> -->
+
+  <?php if ( function_exists( 'smuzform_render_form' ) ) { smuzform_render_form('102'); } ?>
 </div>

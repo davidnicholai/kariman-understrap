@@ -47,6 +47,10 @@
               ?>
 
             <?php endwhile; ?>
+            <div class="_usp-container">
+              <h1>Submit Your Story</h1>
+              <?php if (function_exists('user_submitted_posts')) user_submitted_posts(); ?>
+            </div>
 
             <?php the_posts_navigation(); ?>
 
@@ -68,4 +72,4 @@
 
 </div><!-- Wrapper end -->
 
-<?php /* get_footer(); */ ?>
+<?php get_footer(); ?>
